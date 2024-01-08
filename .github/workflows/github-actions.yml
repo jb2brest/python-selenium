@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.12","3.27"]
 
     steps:
       - uses: actions/checkout@v4
@@ -17,3 +17,7 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      - name: Test with unittest
+        run: |
+          cd request_handler
+          python -m unittest discover -s ./tests  -p 'test_*.py'
