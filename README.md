@@ -1,10 +1,8 @@
-# python-selenium
+# python-test
 
-## installation 
-pip install selenium
+Permet de débuter avec les tests en python : 
+- unittest
+- [selenium](./docs/selenium.md)
 
-https://github.com/mozilla/geckodriver/releases
-
-tar -xvzf geckodriver*
 
 
