@@ -1,7 +1,7 @@
 import os, sys
 import unittest
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import calc
+import classes.calc as calc
 
 
 class TestSomme(unittest.TestCase):
@@ -16,4 +16,5 @@ class TestSomme(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     unittest.main()
