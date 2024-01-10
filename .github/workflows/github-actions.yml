@@ -34,6 +34,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pytest-results
-          path: junit/pytest-results.xml
+          path: tests/tests_unit/pytest-results.html
           # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
