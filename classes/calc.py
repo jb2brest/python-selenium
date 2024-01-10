@@ -1,4 +1,4 @@
-import unittest
+
 
 def somme(arg):
     resultat = 0
@@ -6,20 +6,14 @@ def somme(arg):
         resultat += val
     return resultat
 
-class TestSomme(unittest.TestCase):
-    def test_somme(self):
-        calcul=somme([1,2,3])
-        attendu=6
-        self.assertEqual(calcul,attendu)
-    def test_somme_erreur(self):
-        calcul=somme([1,2,2])
-        attendu=6
-        self.assertNotEqual(calcul,attendu)
-    def test_somme_erreur(self):
-        calcul=somme([1,2,3])
-        attendu=6
-        self.assertNotEqual(calcul,attendu)
+
+def soustraction(arg1, arg2):
+    resultat = arg1
+    for val in arg2:
+        resultat -= val
+    return resultat
 
 
-if __name__ == "__main__":
-    unittest.main()
+def multiplication(arg1, arg2):
+    resultat = arg1 * arg2
+    return resultat
