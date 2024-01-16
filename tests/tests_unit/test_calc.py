@@ -1,7 +1,9 @@
 import os, sys
 import unittest
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-import classes.calc as Calc
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from classes.Calc import Calc
 
 
 class TestSomme(unittest.TestCase):

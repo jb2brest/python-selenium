@@ -1,6 +1,6 @@
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-import classes.calc as Calc
+from classes.Calc import Calc
 
 def test_somme():
     calc = Calc()
