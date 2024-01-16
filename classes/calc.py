@@ -1,19 +1,24 @@
 
 
-def somme(arg):
-    resultat = 0
-    for val in arg:
-        resultat += val
-    return resultat
+class Calc:
 
+    lastResult=0
 
-def soustraction(arg1, arg2):
-    resultat = arg1
-    for val in arg2:
-        resultat -= val
-    return resultat
+    def somme(self, arg):
+        resultat = 0
+        for val in arg:
+            resultat += val
+        self.lastResult = resultat
+        return resultat
 
+    def soustraction(self, arg1, arg2):
+        resultat = arg1
+        for val in arg2:
+            resultat -= val
+        self.lastResult = resultat
+        return resultat
 
-def multiplication(arg1, arg2):
-    resultat = arg1 * arg2
-    return resultat
+    def multiplication(self, arg1, arg2):
+        resultat = arg1 * arg2
+        self.lastResult = resultat
+        return resultat
