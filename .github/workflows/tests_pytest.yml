@@ -1,0 +1,39 @@
+name: github-actions
+run-name: ${{ github.actor }} is launching GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test with unittest
+        run: |
+          ls
+          pwd
+          python -m unittest discover -s ./tests/tests_unit  -p 'test_*.py'
+      - name: Test with pytest
+        run: |
+          ls
+          python -m pytest --doctest-modules --cov=classes --cov-report=html --html="tests/tests_unit/pytest-results.html"
+      - name: Upload pytest test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-results
+          path: tests/tests_unit/pytest-results.html
+          # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
