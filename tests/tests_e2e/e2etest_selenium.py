@@ -14,6 +14,7 @@ class ChromeSearch(unittest.TestCase):
     def setUp(self):
         # configuration du navigateur
         chrome_options = Options()
+        chrome_options.add_argument("--headless"); 
         chrome_options.add_argument("start-maximized"); # open Browser in maximized mode
         chrome_options.add_argument("disable-infobars"); # disabling infobars
         chrome_options.add_argument("--disable-extensions"); # disabling extensions
