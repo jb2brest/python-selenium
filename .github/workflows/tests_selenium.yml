@@ -1,4 +1,4 @@
-name: github-actions
+name: Test-Selenium
 run-name: ${{ github.actor }} is launching tests with selenium
 on: [push]
 jobs:
