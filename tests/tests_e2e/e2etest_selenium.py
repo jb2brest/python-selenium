@@ -2,7 +2,8 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
 import warnings
 
@@ -19,7 +20,8 @@ class ChromeSearch(unittest.TestCase):
         chrome_options.add_argument("--disable-gpu"); # applicable to windows os only
         chrome_options.add_argument("--disable-dev-shm-usage"); # overcome limited resource problems
         chrome_options.add_argument("--no-sandbox"); # Bypass OS security model
-        self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=chrome_options)
+
 
     def teste2e_search_in_python_org(self):
         warnings.simplefilter("ignore", ResourceWarning)
